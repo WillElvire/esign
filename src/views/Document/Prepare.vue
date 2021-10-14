@@ -90,6 +90,7 @@ import { applyFields, addField } from '@/utils/webviewer-form'
 import WebViewer, { WebViewerInstance } from '@pdftron/webviewer'
 import { NButton, NFormItem, NForm, NTable, NCard, NInput, NIcon, NUpload, NSelect } from 'naive-ui'
 import { Brush, Send } from '@vicons/carbon'
+import { sendReceiverMail, sendSigneesMail } from '@/../functions'
 export default defineComponent({
   name: 'PrepareDocument',
   components: {
@@ -131,6 +132,7 @@ export default defineComponent({
     }))
     signee.value = signeesOptions.length > 0 ? signeesOptions[0].value : ''
     const uploadForSigning = async (xfdfString: string) => {
+
       const { documentViewer } = instance.value.Core
       const document = documentViewer.getDocument()
       const storageRef = storage.ref()
@@ -144,8 +146,11 @@ export default defineComponent({
       // create an entry in the database
       const emails = signStore.signees.map((signee) => signee.email)
       await addDocumentToSign(user?.uid, user?.email, referenceString, emails)
+      sendSigneesMail(user?.email)
+      sendReceiverMail(signee.email)
       signStore.resetSignees()
       router.push('/')
+
     }
     const dragOver = (e) => {
       e.preventDefault()
