@@ -1,0 +1,44 @@
+{
+  "colors": {
+    "primary": {
+      "DEFAULT": "#db5a42",
+      "focus": "#d84a31",
+      "content": "#ffffff"
+    },
+
+    "secondary": {
+      "DEFAULT": "#056532FF",
+      "focus": "#014F26FF ",
+      "content": "#ffffff"
+    },
+
+    "accent": {
+      "DEFAULT": "#37cdbe",
+      "focus": "#2aa79b",
+      "content": "#ffffff"
+    },
+
+    "neutral": {
+      "DEFAULT": "#3d4451",
+      "focus": "#2a2e37",
+      "content": "#ffffff"
+    },
+
+    "base": {
+      "100": "#ffffff",
+      "200": "#f9fafb",
+      "300": "#d1d5db",
+      "content": "#1f2937"
+    },
+
+    "info": "#2094f3",
+    "success": "#009485",
+    "warning": "#ff9900",
+    "error": "#ff5724"
+  },
+
+  "fontFamily": {
+    "sans": "Nuno"
+  }
+  
+}
